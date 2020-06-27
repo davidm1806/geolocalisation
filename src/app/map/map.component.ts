@@ -40,7 +40,7 @@ export class MapComponent implements OnInit {
     this.results = results;
   }
 
-  private initializeMapOptions () {
+  initializeMapOptions () {
     this.options = {
       zoom: 12,
       layers: [
@@ -49,7 +49,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  private initializeDefaultMapPoint () {
+  initializeDefaultMapPoint () {
     this.mapPoint = {
       name: 'Hello',
       latitude: DEFAULT_LATITUDE,
@@ -57,13 +57,13 @@ export class MapComponent implements OnInit {
     };
   }
 
-  private onMapClick (e: LeafletMouseEvent) {
+  onMapClick (e: LeafletMouseEvent) {
     this.clearMap();
     this.updateMapPoint(e.latlng.lat, e.latlng.lng);
     this.createMarker();
   }
 
-  private updateMapPoint (latitude: number, longitude: number, name?: string) {
+  updateMapPoint (latitude: number, longitude: number, name?: string) {
     this.mapPoint = {
       latitude: latitude,
       longitude: longitude,
